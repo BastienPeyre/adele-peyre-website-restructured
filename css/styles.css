@@ -1,0 +1,126 @@
+/* Variables de couleurs et de thème */
+:root {
+    --primary-bg: #fffffe;
+    --primary-text: #5f6c7b;
+    --secondary-bg: #f8f5ff;
+    --accent-color: rgb(124, 58, 237);
+    --accent-light: rgb(156, 111, 240);
+    --accent-dark: rgb(107, 33, 210);
+    --accent-pale: rgb(243, 238, 254);
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 20px rgba(124, 58, 237, 0.08);
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+[data-theme="dark"] {
+    --primary-bg: #16161a;
+    --primary-text: #94a1b2;
+    --secondary-bg: #242629;
+    --accent-color: rgb(124, 58, 237);
+    --accent-light: rgb(156, 111, 240);
+    --accent-dark: rgb(107, 33, 210);
+    --accent-pale: rgb(42, 28, 70);
+    --card-bg: #242629;
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    --header-bg: rgba(22, 22, 26, 0.98);
+}
+
+/* Styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+}
+
+/* Header et Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.07);
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+}
+
+.logo-image {
+    height: 45px;
+    width: 45px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+/* Le reste du code CSS reste le même que dans l'original */
+/* ... */
+
+/* Gestion des media queries et des styles responsives */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-bg);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
