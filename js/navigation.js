@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinksContainer = document.querySelector('.nav-links');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 
+    // Vérification des éléments
+    if (!navLinks.length || !pageSections.length) {
+        console.error('Impossible de trouver les éléments de navigation');
+        return;
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -25,12 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             // Fermer le menu mobile si ouvert
-            navLinksContainer.classList.remove('active');
+            if (navLinksContainer) {
+                navLinksContainer.classList.remove('active');
+            }
         });
     });
 
     // Toggle du menu mobile
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-    });
+    if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+    } else {
+        console.warn('Bouton de menu mobile ou conteneur de liens non trouvé');
+    }
 });
